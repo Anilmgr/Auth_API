@@ -7,17 +7,14 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 mongoose
-  .connect(
-    process.env.DB_CONNECT
-  )
-  .then(() => console.log("Connected to DB!"));
+    .connect(process.env.DB_CONNECT)
+    .then(() => console.log("Connected to DB!"));
 
 //Middleware
 app.use(express.json());
 
-
 app.use("/api/user", authRoute);
 
 app.listen(8000, () => {
-  console.log("Server started");
+    console.log("Server started");
 });
